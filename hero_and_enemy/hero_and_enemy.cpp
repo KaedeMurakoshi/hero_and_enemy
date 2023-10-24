@@ -4,53 +4,88 @@
 #include <iostream>
 using namespace std;
 
+const int HEAL_AMOUNT;
+
 class Hero {
-private:
+public:
     char* name;
     int hp;
     int atk;
     int def;
 
-public:
+    Hero();
     void Attack(Enemy* enemy);
     void Heal();
+    void Getter();
+    void Setter();
 };
 
 class Enemy {
-private:
-    char* name;
+public:
+    const char* name;
     int hp;
     int atk;
     int def;
 
-public:
+    Enemy();
+
     void Attack(Hero* hero);
     void Heal();
 };
 
 void Hero::Attack(Enemy* enemy)
 {
-
+    int damage = atk - enemy->def;
+    if (damage < 0) { damage = 0;}
+    enemy->hp -= damage;
 }
 
 void Hero::Heal()
 {
-
+    hp += HEAL_AMOUNT;
 }
 
 void Enemy::Attack(Hero* hero)
 {
-
+    int damage = atk - hero->def;
+    if (damage < 0) { damage = 0;}
+    hero->hp -= damage;
 }
 
 void Enemy::Heal()
+{
+    hp += HEAL_AMOUNT;
+}
+
+Hero::Hero()
+{
+    name = new char[32];
+    hp = 100;
+    atk = 50;
+    def = 30;
+}
+
+Enemy::Enemy() 
+{
+    name = "エルギオス";
+    hp = 100;
+    atk = 50;
+    def = 30;
+}
+
+void Hero::Getter()
+{
+
+}
+
+void Hero::Setter()
 {
 
 }
 
 int main()
 {
-    std::cout << "Hello World!\n";
+
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー
