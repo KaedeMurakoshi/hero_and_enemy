@@ -11,14 +11,16 @@ private:
     int _def;
 
 public:
+    void operator=(const Hero& other);   // 代入演算子のオーバーロード
+
+public:
+    Hero(const Hero& other);    // コピーコンストラクタ
     Hero(char* pName, int hp);
     ~Hero();
 
 public:
     int GetDef() { return _def; }
-
     int GetHp() { return _hp; }
-
     void SetHp(int hp) { _hp = hp; }
 
 public:
@@ -36,6 +38,10 @@ private:
     int _def = 20;
 
 public:
+    void operator=(const Enemy& other);   // 代入演算子のオーバーロード
+
+public:
+    Enemy(const Enemy& other);  // コピーコンストラクタ
     Enemy(char* pName, int hp);
     ~Enemy();
 

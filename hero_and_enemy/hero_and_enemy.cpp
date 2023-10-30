@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
+#include <algorithm>
 #include"hero_and_enemy.h"
 using namespace std;
 
@@ -10,6 +11,71 @@ using namespace std;
 
 const int MAX_NAME = 32;
 const int HEAL_AMOUNT = 30;
+
+void ShowStatus(Hero hero, Enemy enemy)
+{
+    printf("名前 : %s\n", hero._pName);
+    printf("体力 : %d\n", hero._hp);
+    printf("攻撃力 : %d\n", hero._atk);
+    printf("防御力 : %d\n", hero._def);
+
+    printf("\n名前 : %s\n", enemy._pName);
+    printf("体力 : %d\n", enemy._hp);
+    printf("攻撃力 : %d\n", enemy._atk);
+    printf("防御力 : %d\n", enemy._def);
+}
+
+// 代入演算子のオーバーロード
+void Hero::operator=(const Hero& other)
+{
+    char* name = new char[other._nameSize];
+
+    delete[] _pName;
+    _pName = name;
+    _nameSize = other._nameSize;
+    copy(other._pName, other._pName + other._nameSize, _pName);
+
+    _hp = other._hp;
+    _atk = other._atk;
+    _def = other._def;
+}
+
+void Enemy::operator=(const Enemy& other)
+{
+    char* name = new char[other._nameSize];
+
+    delete[] _pName;
+    _pName = name;
+    _nameSize = other._nameSize;
+    copy(other._pName, other._pName + other._nameSize, _pName);
+
+    _hp = other._hp;
+    _atk = other._atk;
+    _def = other._def;
+}
+
+// コピーコンストラクタ
+Hero::Hero(const Hero& other)
+{
+    _pName = new char[other._nameSize];
+    _nameSize = other._nameSize;
+    _hp = other._hp;
+    _atk = other._atk;
+    _def = other._def;
+
+    copy(other._pName, other._pName + _nameSize, _nameSize);
+}
+
+Enemy::Enemy(const Enemy& other)
+{
+    _pName = new char[other._nameSize];
+    _nameSize = other._nameSize;
+    _hp = other._hp;
+    _atk = other._atk;
+    _def = other._def;
+
+    copy(other._pName, other._pName + _nameSize, _nameSize);
+}
 
 // コンストラクタ
 Hero::Hero(char* pName, int hp)
