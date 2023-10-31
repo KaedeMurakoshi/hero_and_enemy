@@ -33,7 +33,7 @@ void Hero::operator=(const Hero& other)
     delete[] _pName;
     _pName = name;
     _nameSize = other._nameSize;
-    copy(other._pName, other._pName + other._nameSize, _pName);
+    strcpy(other._pName, _pName);
 
     _hp = other._hp;
     _atk = other._atk;
@@ -47,7 +47,7 @@ void Enemy::operator=(const Enemy& other)
     delete[] _pName;
     _pName = name;
     _nameSize = other._nameSize;
-    copy(other._pName, other._pName + other._nameSize, _pName);
+    strcpy(other._pName, _pName);
 
     _hp = other._hp;
     _atk = other._atk;
