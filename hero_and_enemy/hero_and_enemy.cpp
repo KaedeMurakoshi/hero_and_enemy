@@ -14,15 +14,15 @@ const int HEAL_AMOUNT = 30;
 
 void ShowStatus(Hero hero, Enemy enemy)
 {
-    printf("名前 : %s\n", hero._pName);
-    printf("体力 : %d\n", hero._hp);
-    printf("攻撃力 : %d\n", hero._atk);
-    printf("防御力 : %d\n", hero._def);
+    //printf("名前 : %s\n", hero._pName);
+    printf("体力 : %d\n", hero.GetHp());
+    printf("攻撃力 : %d\n", hero.GetAtk());
+    printf("防御力 : %d\n", hero.GetDef());
 
-    printf("\n名前 : %s\n", enemy._pName);
-    printf("体力 : %d\n", enemy._hp);
-    printf("攻撃力 : %d\n", enemy._atk);
-    printf("防御力 : %d\n", enemy._def);
+    //rintf("\n名前 : %s\n", enemy._pName);
+    printf("体力 : %d\n", enemy.GetHp());
+    printf("攻撃力 : %d\n", enemy.GetAtk());
+    printf("防御力 : %d\n", enemy.GetDef());
 }
 
 // 代入演算子のオーバーロード

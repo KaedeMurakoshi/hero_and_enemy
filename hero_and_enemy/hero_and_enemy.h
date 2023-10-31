@@ -21,6 +21,7 @@ public:
 public:
     int GetDef() { return _def; }
     int GetHp() { return _hp; }
+    int GetAtk() { return _atk; }
     void SetHp(int hp) { _hp = hp; }
 
 public:
@@ -45,16 +46,10 @@ public:
     Enemy(char* pName, int hp);
     ~Enemy();
 
-public:
-    int GetDef()
-    {
-        return _def;
-    }
-
-    int GetHp()
-    {
-        return _hp;
-    }
+public: 
+    int GetAtk() { return _atk; }
+    int GetDef() { return _def; }
+    int GetHp() { return _hp; }
 
     void SetHp(int hp)
     {
